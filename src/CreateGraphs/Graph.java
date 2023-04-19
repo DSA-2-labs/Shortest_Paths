@@ -1,4 +1,4 @@
-package CreateGraphs;
+package src.CreateGraphs;
 
 import java.io.File;
 import java.io.FileNotFoundException;

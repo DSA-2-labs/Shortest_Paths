@@ -1,4 +1,4 @@
-package CreateGraphs;
+package src.CreateGraphs;
 
 public class Edge {
     private int from;
