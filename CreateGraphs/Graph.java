@@ -24,6 +24,10 @@ public class Graph {
             e.printStackTrace();
         }
     }
+    public int size()
+    {
+        return V;
+    }
     public void print()
     {
         System.out.println("Verices="+V+", Edges="+E);
