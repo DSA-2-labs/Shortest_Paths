@@ -101,13 +101,13 @@ public class Graph {
     }
 
     public boolean Floyd_warshall(int[][] costs,int[][] predecessors){
-//        for (int i = 0; i < costs.length; i++) {
-//            Arrays.fill(costs[i],Integer.MAX_VALUE);
-//            costs[i][i]=0;
-//        }
-//        for (int i = 0; i < E; i++) {
-//            costs[edges[i].getFrom()][edges[i].getTo()]=edges[i].getW();
-//        }
+        for (int i = 0; i < predecessors.length; i++) {
+            Arrays.fill(predecessors[i],Integer.MAX_VALUE);
+            predecessors[i][i]=0;
+        }
+        for (int i = 0; i < E; i++) {
+            predecessors[edges[i].getFrom()][edges[i].getTo()]=edges[i].getW();
+        }
         costs=predecessors;
         for (int k = 0; k < adjMatrix.length; k++) {
             for (int i = 0; i < adjMatrix.length; i++) {
