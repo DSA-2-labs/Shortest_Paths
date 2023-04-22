@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Graph {
     private int V,E;
     private Edge[] edges;
-    private int[][] adjMatrix = new int[V][V];
+    private int[][] adjMatrix;
     public Graph(String filename)
     {
         try {
@@ -16,6 +16,7 @@ public class Graph {
             V=scan.nextInt();
             E= scan.nextInt();
             edges=new Edge[E];
+            adjMatrix= new int[V][V];
             for (int i = 0; i < E; i++) {
                 edges[i]=new Edge(scan.nextInt(),scan.nextInt(),scan.nextInt());
                 int x = edges[i].getFrom();
@@ -99,5 +100,38 @@ public class Graph {
         }
     }
 
-
+    public boolean Floyd_warshall(int[][] costs,int[][] predecessors){
+        for (int i = 0; i < costs.length; i++) {
+            Arrays.fill(costs[i],Integer.MAX_VALUE);
+            costs[i][i]=0;
+        }
+        for (int i = 0; i < E; i++) {
+            costs[edges[i].getFrom()][edges[i].getTo()]=edges[i].getW();
+        }
+        for (int k = 0; k < adjMatrix.length; k++) {
+            for (int i = 0; i < adjMatrix.length; i++) {
+                for (int j = 0; j < adjMatrix.length; j++) {
+                    if (costs[i][k] != Integer.MAX_VALUE && costs[k][j] != Integer.MAX_VALUE)
+                    {
+                        costs[i][j]=Math.min(costs[i][j],costs[i][k]+costs[k][j]);
+                        if (costs[k][j] < Integer.MAX_VALUE && costs[j][j] < 0 && costs[j][i] < Integer.MAX_VALUE)
+                            costs[k][i] = Integer.MIN_VALUE;
+                    }
+                }
+            }
+        }
+//        for (int i = 0; i < costs.length; i++) {
+//            for (int j = 0; j < costs[0].length; j++) {
+//                System.out.print(costs[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
+        for (int i = 0; i < costs.length; i++) {
+            for (int j = 0; j < costs[0].length; j++) {
+                if(costs[i][j]==Integer.MIN_VALUE)
+                    return false;
+            }
+        }
+        return true;
+    }
 }
