@@ -12,76 +12,105 @@ public class Dijkstra_Tests {
     public void Test1()
     {
         graph=new Graph("/home/mahmoud/Test1.txt");
-
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test2()
     {
         graph=new Graph("/home/mahmoud/Test2.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test3()
     {
         graph=new Graph("/home/mahmoud/Test3.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test4()
     {
         graph=new Graph("/home/mahmoud/Test4.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test5()
     {
         graph=new Graph("/home/mahmoud/Test5.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test6()
     {
         graph=new Graph("/home/mahmoud/Test6.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test7()
     {
         graph=new Graph("/home/mahmoud/Test7.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test8()
     {
         graph=new Graph("/home/mahmoud/Test8.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test9()
     {
         graph=new Graph("/home/mahmoud/Test9.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test10()
     {
         graph=new Graph("/home/mahmoud/Test10.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test11()
     {
         graph=new Graph("/home/mahmoud/Test11.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test12()
     {
         graph=new Graph("/home/mahmoud/Test12.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test13()
     {
         graph=new Graph("/home/mahmoud/Test13.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test14()
     {
         graph=new Graph("/home/mahmoud/Test14.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
     @Test
     public void Test15()
     {
         graph=new Graph("/home/mahmoud/Test15.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
     }
 }
