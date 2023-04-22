@@ -87,7 +87,7 @@ public class Graph {
                 }
             }
             added[nearestV] = true;
-            for(int index = 0; index<V ; i++){
+            for(int index = 0; index<V ; index++){
                 int edgeW = adjMatrix[nearestV][index];
                 if(edgeW > 0 && shortest_D+edgeW < cost[index]){
                     cost[index] = shortest_D+edgeW;
