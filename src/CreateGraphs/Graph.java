@@ -112,7 +112,7 @@ public class Graph {
         for (int k = 0; k < adjMatrix.length; k++) {
             for (int i = 0; i < adjMatrix.length; i++) {
                 for (int j = 0; j < adjMatrix.length; j++) {
-                    if (costs[i][k] != Integer.MAX_VALUE && costs[k][j] != Integer.MAX_VALUE)
+                    if (costs[i][k] != Integer.MAX_VALUE && costs[k][j] != Integer.MAX_VALUE)//for overflow
                     {
                         costs[i][j]=Math.min(costs[i][j],costs[i][k]+costs[k][j]);
                         if (costs[k][j] < Integer.MAX_VALUE && costs[j][j] < 0 && costs[j][i] < Integer.MAX_VALUE)
@@ -121,12 +121,6 @@ public class Graph {
                 }
             }
         }
-//        for (int i = 0; i < costs.length; i++) {
-//            for (int j = 0; j < costs[0].length; j++) {
-//                System.out.print(costs[i][j]+" ");
-//            }
-//            System.out.println();
-//        }
         for (int i = 0; i < costs.length; i++) {
             for (int j = 0; j < costs[0].length; j++) {
                 if(costs[i][j]==Integer.MIN_VALUE)
