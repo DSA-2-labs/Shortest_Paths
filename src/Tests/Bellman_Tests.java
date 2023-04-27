@@ -37,6 +37,8 @@ public class Bellman_Tests {
         graph=new Graph("/home/mahmoud/Test4.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        graph.bellmanFord(0,cost,parents);
+        assertArrayEquals(new int[]{0, 5, 2, 8, 6},cost);
     }
     @Test
     public void Test5()
@@ -44,6 +46,8 @@ public class Bellman_Tests {
         graph=new Graph("/home/mahmoud/Test5.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        graph.bellmanFord(0,cost,parents);
+
     }
     @Test
     public void Test6()

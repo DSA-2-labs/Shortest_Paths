@@ -1,4 +1,5 @@
 package src.Tests;
+import org.junit.Assert;
 import org.junit.Test;
 import src.CreateGraphs.Graph;
 
@@ -14,6 +15,8 @@ public class Dijkstra_Tests {
         graph=new Graph("/home/mahmoud/Test1.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        graph.dijkestra(0,cost,parents);
+        assertArrayEquals(new int[]{0, 2, -4, 6},cost);
     }
     @Test
     public void Test2()
@@ -21,6 +24,8 @@ public class Dijkstra_Tests {
         graph=new Graph("/home/mahmoud/Test2.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        graph.dijkestra(0,cost,parents);
+        assertArrayEquals(new int[]{0, 2, -4, 6},cost);
     }
     @Test
     public void Test3()
@@ -35,6 +40,8 @@ public class Dijkstra_Tests {
         graph=new Graph("/home/mahmoud/Test4.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        graph.dijkestra(0,cost,parents);
+        assertArrayEquals(new int[]{0, 5, 2, 8, 6},cost);
     }
     @Test
     public void Test5()
@@ -42,6 +49,7 @@ public class Dijkstra_Tests {
         graph=new Graph("/home/mahmoud/Test5.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+
     }
     @Test
     public void Test6()

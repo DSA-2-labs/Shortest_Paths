@@ -85,6 +85,7 @@ public class Graph {
                 if(!added[j] && cost[j] < shortest_D){
                     shortest_D = cost[j];
                     nearestV = j;
+                    System.out.println(V+" "+nearestV);
                 }
             }
             added[nearestV] = true;
@@ -108,7 +109,9 @@ public class Graph {
         for (int i = 0; i < E; i++) {
             predecessors[edges[i].getFrom()][edges[i].getTo()]=edges[i].getW();
         }
-        costs=predecessors;
+        for (int i = 0; i < predecessors.length; i++) {
+            costs[i]=predecessors[i].clone();
+        }
         for (int k = 0; k < adjMatrix.length; k++) {
             for (int i = 0; i < adjMatrix.length; i++) {
                 for (int j = 0; j < adjMatrix.length; j++) {
@@ -121,6 +124,12 @@ public class Graph {
                 }
             }
         }
+//        for (int i = 0; i < costs.length; i++) {
+//            for (int j = 0; j < costs[0].length; j++) {
+//                System.out.print(costs[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
         for (int i = 0; i < costs.length; i++) {
             for (int j = 0; j < costs[0].length; j++) {
                 if(costs[i][j]==Integer.MIN_VALUE)
