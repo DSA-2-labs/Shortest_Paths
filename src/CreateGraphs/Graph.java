@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Graph {
+    private static final int INF = Integer.MAX_VALUE;
     private int V,E;
     private Edge[] edges;
     private int[][] adjMatrix;
@@ -45,7 +46,7 @@ public class Graph {
         }
     }
     public boolean bellmanFord(int src,int[] cost,int[] p){
-        Arrays.fill(cost,Integer.MAX_VALUE);
+        Arrays.fill(cost, INF);
         Arrays.fill(p,-1);
         cost[src] = 0;
         for (int i = 0; i <V-1 ; i++) {
@@ -53,8 +54,8 @@ public class Graph {
                 int u = edges[j].getFrom();
                 int v = edges[j].getTo();
                 int w = edges[j].getW();
-                if (cost[u]!=Integer.MAX_VALUE && cost[u]+w<cost[v]){
-                    cost[v] = Math.max(-Integer.MAX_VALUE,cost[u]+w);//for overflow
+                if (cost[u]!=INF && cost[u]+w<cost[v]){
+                    cost[v] = Math.max(-INF,cost[u]+w);//for overflow
                     p[v] = u;
                 }
             }
@@ -64,7 +65,7 @@ public class Graph {
             int u = edges[i].getFrom();
             int v = edges[i].getTo();
             int w = edges[i].getW();
-            if (cost[u]!=Integer.MAX_VALUE && cost[u]+w<cost[v]){
+            if (cost[u]!=INF && cost[u]+w<cost[v]){
                 return false;
             }
         }
@@ -73,14 +74,14 @@ public class Graph {
     public void dijkestra(int src, int[] cost, int[] p){
         boolean[] added = new boolean[V];
         for (int i = 0; i < V; i++) {
-            cost[i] = Integer.MAX_VALUE;
+            cost[i] = INF;
             added[i] = false;
         }
         cost[src] = 0;
         p[src] = -1;
         for(int i=0 ; i<V ; i++){
             int nearestV = -1;
-            int shortest_D = Integer.MAX_VALUE;
+            int shortest_D = INF;
             for(int j=0 ; j<V ; j++){
                 if(!added[j] && cost[j] < shortest_D){
                     shortest_D = cost[j];
@@ -101,39 +102,31 @@ public class Graph {
         }
     }
 
-    public boolean Floyd_warshall(int[][] costs,int[][] predecessors){
-        for (int i = 0; i < predecessors.length; i++) {
-            Arrays.fill(predecessors[i],Integer.MAX_VALUE);
-            predecessors[i][i]=0;
+    public boolean Floyd_warshall(int[][] costs,int[][] predecessors) {
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                if(i == j) costs[i][j] = 0;
+                else costs[i][j] = INF;
+                predecessors[i][j] = -1;
+            }
         }
-        for (int i = 0; i < E; i++) {
-            predecessors[edges[i].getFrom()][edges[i].getTo()]=edges[i].getW();
+        for(Edge edge: edges) {
+            costs[edge.getFrom()][edge.getTo()] = edge.getW();
+            predecessors[edge.getFrom()][edge.getTo()] = edge.getFrom();
         }
-        for (int i = 0; i < predecessors.length; i++) {
-            costs[i]=predecessors[i].clone();
-        }
-        for (int k = 0; k < adjMatrix.length; k++) {
-            for (int i = 0; i < adjMatrix.length; i++) {
-                for (int j = 0; j < adjMatrix.length; j++) {
-                    if (costs[i][k] != Integer.MAX_VALUE && costs[k][j] != Integer.MAX_VALUE)//for overflow
-                    {
-                        costs[i][j]=Math.min(costs[i][j],costs[i][k]+costs[k][j]);
-                        if (costs[k][j] < Integer.MAX_VALUE && costs[j][j] < 0 && costs[j][i] < Integer.MAX_VALUE)
-                            costs[k][i] = Integer.MIN_VALUE;
+        for (int k = 0; k < V; k++) {
+            for (int i = 0; i < V; i++) {
+                for (int j = 0; j < V; j++) {
+                    if (costs[i][k] != INF && costs[k][j] != INF && costs[i][j] > costs[i][k]+costs[k][j]) {
+                        costs[i][j]=costs[i][k]+costs[k][j];
+                        predecessors[i][j] = predecessors[k][j];
                     }
                 }
             }
         }
-//        for (int i = 0; i < costs.length; i++) {
-//            for (int j = 0; j < costs[0].length; j++) {
-//                System.out.print(costs[i][j]+" ");
-//            }
-//            System.out.println();
-//        }
         for (int i = 0; i < costs.length; i++) {
-            for (int j = 0; j < costs[0].length; j++) {
-                if(costs[i][j]==Integer.MIN_VALUE)
-                    return false;
+            if(costs[i][i] < 0) {
+                return false;
             }
         }
         return true;
