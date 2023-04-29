@@ -119,4 +119,10 @@ public class Bellman_Tests {
         cost=new int[graph.size()];
         parents=new int[graph.size()];
     }
+    @Test
+    public void test16() {
+        //testing bellman negative cycle detection
+        graph = new Graph("/home/mahmoud/Downloads/test4.txt");
+        assertFalse(graph.bellmanFord(0, new int[graph.size()], new int[graph.size()]));
+    }
 }

@@ -18,6 +18,9 @@ public class Graph {
             E = scan.nextInt();
             edges = new Edge[E];
             adjMatrix = new int[V][V];
+            for (int i = 0; i < V; i++) {
+                Arrays.fill(adjMatrix[i], INF);
+            }
             for (int i = 0; i < E; i++) {
                 edges[i] = new Edge(scan.nextInt(), scan.nextInt(), scan.nextInt());
                 int x = edges[i].getFrom();
@@ -74,11 +77,18 @@ public class Graph {
     public int size() {
         return V;
     }
+    public void print()
+    {
+        //        for (int i = 0; i < E; i++) {
+//            System.out.println(edges[i].getFrom()+"->"+edges[i].getTo()+","+edges[i].getW());
+//        }
+//        adjMatrix2= new int[V][V];
 
-    public void print() {
-        System.out.println("Vertices=" + V + ", Edges=" + E);
-        for (int i = 0; i < E; i++) {
-            System.out.println(edges[i].getFrom() + "->" + edges[i].getTo() + "," + edges[i].getW());
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                System.out.print(adjMatrix[i][j]+", ");
+            }
+            System.out.println();
         }
     }
 
@@ -121,15 +131,16 @@ public class Graph {
             int nearestV = -1;
             int shortest_D = INF;
             for (int j = 0; j < V; j++) {
-                if (!added[j] && cost[j] < shortest_D) {
+                if (!added[j] && cost[j] <= shortest_D) {
                     shortest_D = cost[j];
                     nearestV = j;
+                    System.out.println(V+" "+nearestV);
                 }
             }
             added[nearestV] = true;
             for (int index = 0; index < V; index++) {
                 int edgeW = adjMatrix[nearestV][index];
-                if (edgeW < Integer.MAX_VALUE && shortest_D + edgeW < cost[index]) {
+                if (shortest_D<INF && edgeW < INF && shortest_D + edgeW < cost[index] ) {
                     cost[index] = shortest_D + edgeW;
                     p[index] = nearestV;
                 }
@@ -143,11 +154,13 @@ public class Graph {
         for (int i = 0; i < V; i++) {
             Arrays.fill(costs[i], INF);
             Arrays.fill(predecessors[i], -1);
-            costs[i][i] = 0;
         }
         for (Edge edge : edges) {
             costs[edge.getFrom()][edge.getTo()] = edge.getW();
             predecessors[edge.getFrom()][edge.getTo()] = edge.getFrom();
+        }
+        for (int i = 0; i < V; i++) {
+            costs[i][i] = 0;
         }
         for (int k = 0; k < V; k++) {
             for (int i = 0; i < V; i++) {
