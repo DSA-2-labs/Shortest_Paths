@@ -65,6 +65,9 @@ public class Graph {
             E= scan.nextInt();
             edges=new Edge[E];
             adjMatrix= new int[V][V];
+            for (int i = 0; i <V ; i++) {
+                Arrays.fill(adjMatrix[i],Integer.MAX_VALUE);
+            }
             for (int i = 0; i < E; i++) {
                 edges[i]=new Edge(scan.nextInt(),scan.nextInt(),scan.nextInt());
                 int x = edges[i].getFrom();
@@ -87,6 +90,7 @@ public class Graph {
             break;
         }
     }
+        print();
     }
     public int size()
     {
@@ -145,7 +149,7 @@ public class Graph {
             added[nearestV] = true;
             for(int index = 0; index<V ; index++){
                 int edgeW = adjMatrix[nearestV][index];
-                if(edgeW > 0 && shortest_D+edgeW < cost[index]){
+                if(edgeW<Integer.MAX_VALUE && shortest_D+edgeW < cost[index]){
                     cost[index] = shortest_D+edgeW;
                     p[index] = nearestV;
                 }
@@ -187,10 +191,10 @@ public class Graph {
 
 
   public boolean is_there_negative_edge(){
-        for(int i =0;i<edges.length;i++){
-            if(edges[i].getW()<0)
-             return true;
-        }
+      for (Edge edge : edges) {
+          if (edge.getW() < 0)
+              return true;
+      }
         return false;
     }
 }

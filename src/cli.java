@@ -224,14 +224,13 @@ void  show_algo_menu2(){
     if(source==-1)    
 {
     if(choice==1){
-        if(choice==1&&g.is_there_negative_edge()){
-            System.out.println("\n\ncannot implement dijkestra as there are negative egdes");
-            show_algo_menu(source);
-        }
-        else{
+//        if(choice==1&&g.is_there_negative_edge()){
+//            System.out.println("\n\ncannot implement dijkestra as there are negative egdes");
+//            show_algo_menu(source);
+//        }
+//        else{
 
-        for(int i =1;i<=g.size();i++)
-        g.dijkestra(i-1, costs[i-1], p[i-1]);}
+        for(int i =1;i<=g.size();i++) g.dijkestra(i-1, costs[i-1], p[i-1]);
 
 
     }
@@ -245,13 +244,13 @@ void  show_algo_menu2(){
     }
  }
  else { if(choice==1){
-    if(choice==1&&g.is_there_negative_edge()){
-        System.out.println("\n\ncannot implement dijkestra as there are negative egdes");
-        show_algo_menu(source);
-    }
-    else{
+//    if(choice==1&&g.is_there_negative_edge()){
+//        System.out.println("\n\ncannot implement dijkestra as there are negative egdes");
+//        show_algo_menu(source);
+//    }
+//    else{
     
-    g.dijkestra(source, costs[source], p[source]);}
+    g.dijkestra(source, costs[source], p[source]);
 
 
 }
@@ -293,8 +292,7 @@ else if (choice==3){
      if(sc==-1)
      choose_function_menu();
      
-     else
-     specific_destination_node(sc,costs,p,1);
+     else specific_destination_node(sc,costs,p,1);
 break;}
     catch(InputMismatchException ee){
         System.out.print("\n\nInvalid Node Try Again");
@@ -321,8 +319,7 @@ break;}
         path_or_cost(source,des,costs,p);
         if(is_source_needed==1)
         specific_source_node(-1, costs, p);
-        else
-        specific_destination_node(source, costs, p, is_source_needed);
+        else specific_destination_node(source, costs, p, is_source_needed);
 
 
      }
@@ -386,8 +383,7 @@ break;}
     
     if(source==destination)
     return  String.valueOf(source);
-    else
-    return destination+"<="+get_path(source,p[source][destination],costs,p);
+    else return destination+"<="+get_path(source,p[source][destination],costs,p);
     
     
 }
