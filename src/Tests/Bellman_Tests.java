@@ -112,6 +112,7 @@ public class Bellman_Tests {
         cost=new int[graph.size()];
         parents=new int[graph.size()];
     }
+
     @Test
     public void Test15()
     {

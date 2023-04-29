@@ -230,6 +230,7 @@ public class Floyd_Tests {
         for (int i = 0; i < cost.length; i++) {
             for (int j = 0; j < cost[i].length; j++) {
                 assertTrue(cost[i][j]<=0);
+
             }
         }
     }

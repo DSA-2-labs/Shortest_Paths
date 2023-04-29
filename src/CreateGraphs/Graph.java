@@ -157,7 +157,7 @@ public class Graph {
         }
         for (Edge edge : edges) {
             costs[edge.getFrom()][edge.getTo()] = edge.getW();
-            predecessors[edge.getFrom()][edge.getTo()] = edge.getFrom();
+            predecessors[edge.getFrom() ][edge.getTo()] = edge.getFrom();
         }
         for (int i = 0; i < V; i++) {
             costs[i][i] = 0;
