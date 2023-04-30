@@ -34,20 +34,12 @@ public class cli {
                     System.out.print("\n\nInvalid Choice");
                     continue;
                 }
-
-
                 break;
             } catch (InputMismatchException ee) {
                 System.out.print("\n\nInvalid Choice");
                 x.next();
-
-
             }
-
-
         }
-
-
     }
     void show_algo_menu2() {
         int choice = 0;

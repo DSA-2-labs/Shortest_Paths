@@ -1,6 +1,6 @@
 package src.CreateGraphs;
 
-public class Edge {
+public class Edge{
     private int from;
     private int to;
     private int w;

@@ -34,11 +34,17 @@ public class Bellman_Tests {
     @Test
     public void Test4()
     {
-        graph=new Graph("/home/mahmoud/Test4.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test4.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
-        graph.bellmanFord(0,cost,parents);
-        assertArrayEquals(new int[]{0, 5, 2, 8, 6},cost);
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.bellmanFord(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+            assertArrayEquals(floydPre[i], parents);
+        }
     }
     @Test
     public void Test5()

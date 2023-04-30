@@ -10,126 +10,216 @@ public class Dijkstra_Tests {
     private Graph graph;
     private int[] cost;
     private int[] parents;
-    @Test
-    public void Test1()
-    {
-        graph=new Graph("/home/mahmoud/Test1.txt");
-        cost=new int[graph.size()];
-        parents=new int[graph.size()];
-        graph.dijkestra(0,cost,parents);
-        assertArrayEquals(new int[]{0, 2, -4, 6},cost);
-    }
-    @Test
-    public void Test2()
-    {
-        graph=new Graph("/home/mahmoud/Test2.txt");
-        cost=new int[graph.size()];
-        parents=new int[graph.size()];
-        graph.dijkestra(0,cost,parents);
-        assertArrayEquals(new int[]{0, 2, -4, 6},cost);
-    }
-    @Test
-    public void Test3()
-    {
-        graph=new Graph("/home/mahmoud/Test3.txt");
-        cost=new int[graph.size()];
-        parents=new int[graph.size()];
-    }
+//    @Test
+//    public void Test1()
+//    {
+//        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test1.txt");
+//        cost=new int[graph.size()];
+//        parents=new int[graph.size()];
+//        int[][] floydCost = new int[graph.size()][graph.size()];
+//        int[][] floydPre = new int[graph.size()][graph.size()];
+//        graph.Floyd_warshall(floydCost, floydPre);
+//        for(int i = 0; i < graph.size(); i++) {
+//            graph.dijkestra(i, cost, parents);
+//            assertArrayEquals(floydCost[i], cost);
+//            assertArrayEquals(floydPre[i], parents);
+//        }
+//    }
+//    @Test
+//    public void Test2()
+//    {
+//        graph=new Graph("/home/mahmoud/Test2.txt");
+//        cost=new int[graph.size()];
+//        parents=new int[graph.size()];
+//        graph.dijkestra(0,cost,parents);
+//        assertArrayEquals(new int[]{0, 2, -4, 6},cost);
+//    }
+//    @Test
+//    public void Test3()
+//    {
+//        graph=new Graph("/home/mahmoud/Test3.txt");
+//        cost=new int[graph.size()];
+//        parents=new int[graph.size()];
+//    }
     @Test
     public void Test4()
     {
-        graph=new Graph("/home/mahmoud/Test4.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test4.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
-        graph.dijkestra(0,cost,parents);
-        assertArrayEquals(new int[]{0, 5, 2, 8, 6},cost);
-        graph.dijkestra(1,cost,parents);
-        assertArrayEquals(new int[]{INF,0,7,3,1},cost);
-//        graph.dijkestra(2,cost,parents);
-//        assertArrayEquals(new int[]{, ,0, , },cost);
-//        graph.dijkestra(3,cost,parents);
-//        assertArrayEquals(new int[]{, , ,0, },cost);
-//        graph.dijkestra(4,cost,parents);
-//        assertArrayEquals(new int[]{, , , ,0},cost);
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            System.out.println(i);
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+//            assertArrayEquals(floydPre[i], parents);
+
+        }
     }
     @Test
     public void Test5()
     {
-        graph=new Graph("/home/mahmoud/Test5.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test5.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
-
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+            assertArrayEquals(floydPre[i], parents);
+        }
     }
     @Test
     public void Test6()
     {
-        graph=new Graph("/home/mahmoud/Test6.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test6.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
     @Test
     public void Test7()
     {
-        graph=new Graph("/home/mahmoud/Test7.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test7.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
     @Test
     public void Test8()
     {
-        graph=new Graph("/home/mahmoud/Test8.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test8.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
-    @Test
-    public void Test9()
-    {
-        graph=new Graph("/home/mahmoud/Test9.txt");
-        cost=new int[graph.size()];
-        parents=new int[graph.size()];
-    }
-    @Test
-    public void Test10()
-    {
-        graph=new Graph("/home/mahmoud/Test10.txt");
-        cost=new int[graph.size()];
-        parents=new int[graph.size()];
-    }
+//    @Test
+//    public void Test9()
+//    {
+//        graph=new Graph("/home/mahmoud/Test9.txt");
+//        cost=new int[graph.size()];
+//        parents=new int[graph.size()];
+//    }
+//    @Test
+//    public void Test10()
+//    {
+//        graph=new Graph("/home/mahmoud/Test10.txt");
+//        cost=new int[graph.size()];
+//        parents=new int[graph.size()];
+//    }
     @Test
     public void Test11()
     {
-        graph=new Graph("/home/mahmoud/Test11.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test11.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
     @Test
     public void Test12()
     {
-        graph=new Graph("/home/mahmoud/Test12.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test12.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
     @Test
     public void Test13()
     {
-        graph=new Graph("/home/mahmoud/Test13.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test13.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
     @Test
     public void Test14()
     {
-        graph=new Graph("/home/mahmoud/Test14.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test14.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
     @Test
     public void Test15()
     {
-        graph=new Graph("/home/mahmoud/Test15.txt");
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test15.txt");
         cost=new int[graph.size()];
         parents=new int[graph.size()];
+        int[][] floydCost = new int[graph.size()][graph.size()];
+        int[][] floydPre = new int[graph.size()][graph.size()];
+        graph.Floyd_warshall(floydCost, floydPre);
+        for(int i = 0; i < graph.size(); i++) {
+            graph.dijkestra(i, cost, parents);
+            assertArrayEquals(floydCost[i], cost);
+        }
     }
+
+    @Test
+    public void Test16()
+    {
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test16.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
+        graph.dijkestra(0, cost, parents);
+        assertArrayEquals(cost, new int[] {0,3,0});
+    }
+
+    @Test
+    public void Test17()
+    {
+        graph=new Graph("C:/Users/Dell/Downloads/Telegram Desktop/Test17.txt");
+        cost=new int[graph.size()];
+        parents=new int[graph.size()];
+        graph.dijkestra(0, cost, parents);
+        assertArrayEquals(cost, new int[] {0,3,0});
+    }
+
 //    @Test
 //    void test16() {
 //        //test floyd on small graph

@@ -2,13 +2,13 @@ package src.CreateGraphs;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Graph {
     private static final int INF = Integer.MAX_VALUE;
     private int V, E;
     private Edge[] edges;
+    Map<Integer, ArrayList<int[]>> adjList = new HashMap<>(V);
     private int[][] adjMatrix;
 
     public Graph(String filename) {
@@ -26,6 +26,10 @@ public class Graph {
                 int x = edges[i].getFrom();
                 int y = edges[i].getTo();
                 int w = edges[i].getW();
+                if(!adjList.containsKey(x)) {
+                    adjList.put(x, new ArrayList<>());
+                }
+                adjList.get(x).add(new int[] {y, w});
                 adjMatrix[x][y] = w;
                 adjMatrix[x][x] = 0;
                 adjMatrix[y][y] = 0;
@@ -48,6 +52,7 @@ public class Graph {
                 V = scan.nextInt();
                 E = scan.nextInt();
                 edges = new Edge[E];
+
                 adjMatrix = new int[V][V];
                 for (int i = 0; i < V; i++) {
                     Arrays.fill(adjMatrix[i], INF);
@@ -57,6 +62,10 @@ public class Graph {
                     int x = edges[i].getFrom();
                     int y = edges[i].getTo();
                     int w = edges[i].getW();
+                    if(!adjList.containsKey(x)) {
+                        adjList.put(x, new ArrayList<>());
+                    }
+                    adjList.get(x).add(new int[] {y, w});
                     adjMatrix[x][y] = w;
                     adjMatrix[x][x] = 0;
                     adjMatrix[y][y] = 0;
@@ -93,7 +102,7 @@ public class Graph {
     }
 
     public boolean bellmanFord(int src, int[] cost, int[] p) {
-        Arrays.fill(cost, Integer.MAX_VALUE);
+        Arrays.fill(cost, INF);
         Arrays.fill(p, -1);
         cost[src] = 0;
         for (int i = 0; i < V - 1; i++) {
@@ -120,34 +129,55 @@ public class Graph {
     }
 
     public void dijkestra(int src, int[] cost, int[] p) {
-        boolean[] added = new boolean[V];
-        for (int i = 0; i < V; i++) {
-            cost[i] = INF;
-            added[i] = false;
-        }
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        Arrays.fill(cost, INF);
+        Arrays.fill(p, -1);
         cost[src] = 0;
-        p[src] = -1;
-        for (int i = 0; i < V; i++) {
-            int nearestV = -1;
-            int shortest_D = INF;
-            for (int j = 0; j < V; j++) {
-                if (!added[j] && cost[j] <= shortest_D) {
-                    shortest_D = cost[j];
-                    nearestV = j;
-                    System.out.println(V+" "+nearestV);
+        boolean[] visited = new boolean[V];
+        visited[src] = true;
+        minHeap.offer(new int[]{src, 0});
+        while(!minHeap.isEmpty()) {
+            int[] min = minHeap.poll();
+            int minNode = min[0], minCost = min[1];
+            visited[minNode]= true;
+            List<int[]> neighbors = adjList.get(minNode);
+            if (neighbors != null) {
+                for (int[] neighbor : neighbors) {
+                    int neighborNode = neighbor[0], neighborCost = neighbor[1];
+//                int edgeW = adjMatrix[tmp[0]][i];
+                    if (!visited[neighborNode] && minCost != INF && neighborCost != INF && minCost + neighborCost < cost[neighborNode]) {
+                        cost[neighborNode] = minCost + neighborCost;
+                        p[neighborNode] = minNode;
+                        minHeap.offer(new int[]{neighborNode, cost[neighborNode]});
+                    }
                 }
             }
-            added[nearestV] = true;
-            for (int index = 0; index < V; index++) {
-                int edgeW = adjMatrix[nearestV][index];
-                if (shortest_D<INF && edgeW < INF && shortest_D + edgeW < cost[index] ) {
-                    cost[index] = shortest_D + edgeW;
-                    p[index] = nearestV;
-                }
-
-            }
-
         }
+//        boolean[] added = new boolean[V];
+//        for (int i = 0; i < V; i++) {
+//            cost[i] = INF;
+//            added[i] = false;
+//        }
+//        cost[src] = 0;
+//        Arrays.fill(p, -1);
+//        for (int i = 0; i < V; i++) {
+//            int nearestV = -1;
+//            int shortest_D = INF;
+//            for (int j = 0; j < V; j++) {
+//                if (!added[j] && cost[j] < shortest_D) {
+//                    shortest_D = cost[j];
+//                    nearestV = j;
+//                }
+//            }
+//            if(nearestV != -1)  added[nearestV] = true;
+//            for (int index = 0; index < V; index++) {
+//                int edgeW = adjMatrix[nearestV][index];
+//                if (shortest_D != INF && edgeW != INF && shortest_D + edgeW < cost[index] ) {
+//                    cost[index] = shortest_D + edgeW;
+//                    p[index] = nearestV;
+//                }
+//            }
+//        }
     }
 
     public boolean Floyd_warshall(int[][] costs, int[][] predecessors) {
