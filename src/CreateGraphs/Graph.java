@@ -9,7 +9,6 @@ public class Graph {
     private int V, E;
     private Edge[] edges;
     Map<Integer, ArrayList<int[]>> adjList = new HashMap<>(V);
-//    private int[][] adjMatrix;
 
     public Graph(String filename) {
         try {
@@ -17,10 +16,6 @@ public class Graph {
             V = scan.nextInt();
             E = scan.nextInt();
             edges = new Edge[E];
-//            adjMatrix = new int[V][V];
-//            for (int i = 0; i < V; i++) {
-//                Arrays.fill(adjMatrix[i], INF);
-//            }
             for (int i = 0; i < E; i++) {
                 edges[i] = new Edge(scan.nextInt(), scan.nextInt(), scan.nextInt());
                 int x = edges[i].getFrom();
@@ -30,9 +25,6 @@ public class Graph {
                     adjList.put(x, new ArrayList<>());
                 }
                 adjList.get(x).add(new int[] {y, w});
-//                adjMatrix[x][y] = w;
-//                adjMatrix[x][x] = 0;
-//                adjMatrix[y][y] = 0;
             }
             scan.close();
         } catch (FileNotFoundException e) {
@@ -42,7 +34,6 @@ public class Graph {
 
     public Graph() {
         Scanner input = new Scanner(System.in);
-
         while (true) {
             int Error = 0;
             System.out.print("Enter the path of the File that contain the Graph : ");
@@ -52,10 +43,6 @@ public class Graph {
                 V = scan.nextInt();
                 E = scan.nextInt();
                 edges = new Edge[E];
-//                adjMatrix = new int[V][V];
-//                for (int i = 0; i < V; i++) {
-//                    Arrays.fill(adjMatrix[i], INF);
-//                }
                 for (int i = 0; i < E; i++) {
                     edges[i] = new Edge(scan.nextInt(), scan.nextInt(), scan.nextInt());
                     int x = edges[i].getFrom();
@@ -65,9 +52,6 @@ public class Graph {
                         adjList.put(x, new ArrayList<>());
                     }
                     adjList.get(x).add(new int[] {y, w});
-//                    adjMatrix[x][y] = w;
-//                    adjMatrix[x][x] = 0;
-//                    adjMatrix[y][y] = 0;
                     Error = 0;
                 }
                 scan.close();
@@ -79,25 +63,10 @@ public class Graph {
                 break;
             }
         }
-        print();
     }
 
     public int size() {
         return V;
-    }
-    public void print()
-    {
-        //        for (int i = 0; i < E; i++) {
-//            System.out.println(edges[i].getFrom()+"->"+edges[i].getTo()+","+edges[i].getW());
-//        }
-//        adjMatrix2= new int[V][V];
-
-//        for (int i = 0; i < V; i++) {
-//            for (int j = 0; j < V; j++) {
-//                System.out.print(adjMatrix[i][j]+", ");
-//            }
-//            System.out.println();
-//        }
     }
 
     public boolean bellmanFord(int src, int[] cost, int[] p) {
@@ -143,7 +112,6 @@ public class Graph {
             if (neighbors != null) {
                 for (int[] neighbor : neighbors) {
                     int neighborNode = neighbor[0], neighborCost = neighbor[1];
-//                int edgeW = adjMatrix[tmp[0]][i];
                     if (!visited[neighborNode] && minCost != INF && neighborCost != INF && minCost + neighborCost < cost[neighborNode]) {
                         cost[neighborNode] = minCost + neighborCost;
                         p[neighborNode] = minNode;
@@ -152,31 +120,6 @@ public class Graph {
                 }
             }
         }
-//        boolean[] added = new boolean[V];
-//        for (int i = 0; i < V; i++) {
-//            cost[i] = INF;
-//            added[i] = false;
-//        }
-//        cost[src] = 0;
-//        Arrays.fill(p, -1);
-//        for (int i = 0; i < V; i++) {
-//            int nearestV = -1;
-//            int shortest_D = INF;
-//            for (int j = 0; j < V; j++) {
-//                if (!added[j] && cost[j] < shortest_D) {
-//                    shortest_D = cost[j];
-//                    nearestV = j;
-//                }
-//            }
-//            if(nearestV != -1)  added[nearestV] = true;
-//            for (int index = 0; index < V; index++) {
-//                int edgeW = adjMatrix[nearestV][index];
-//                if (shortest_D != INF && edgeW != INF && shortest_D + edgeW < cost[index] ) {
-//                    cost[index] = shortest_D + edgeW;
-//                    p[index] = nearestV;
-//                }
-//            }
-//        }
     }
 
     public boolean Floyd_warshall(int[][] costs, int[][] predecessors) {
