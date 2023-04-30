@@ -212,6 +212,6 @@ public class cli {
     String get_path(int source, int destination, int[][] costs, int[][] p) {
         if (source == destination)
             return String.valueOf(source);
-        else return destination + "<=" + get_path(source, p[source][destination], costs, p);
+        else return   get_path(source, p[source][destination], costs, p)+"=>"+destination  ;
     }
 }
