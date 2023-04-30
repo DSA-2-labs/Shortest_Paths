@@ -9,7 +9,7 @@ public class Graph {
     private int V, E;
     private Edge[] edges;
     Map<Integer, ArrayList<int[]>> adjList = new HashMap<>(V);
-    private int[][] adjMatrix;
+//    private int[][] adjMatrix;
 
     public Graph(String filename) {
         try {
@@ -17,10 +17,10 @@ public class Graph {
             V = scan.nextInt();
             E = scan.nextInt();
             edges = new Edge[E];
-            adjMatrix = new int[V][V];
-            for (int i = 0; i < V; i++) {
-                Arrays.fill(adjMatrix[i], INF);
-            }
+//            adjMatrix = new int[V][V];
+//            for (int i = 0; i < V; i++) {
+//                Arrays.fill(adjMatrix[i], INF);
+//            }
             for (int i = 0; i < E; i++) {
                 edges[i] = new Edge(scan.nextInt(), scan.nextInt(), scan.nextInt());
                 int x = edges[i].getFrom();
@@ -30,9 +30,9 @@ public class Graph {
                     adjList.put(x, new ArrayList<>());
                 }
                 adjList.get(x).add(new int[] {y, w});
-                adjMatrix[x][y] = w;
-                adjMatrix[x][x] = 0;
-                adjMatrix[y][y] = 0;
+//                adjMatrix[x][y] = w;
+//                adjMatrix[x][x] = 0;
+//                adjMatrix[y][y] = 0;
             }
             scan.close();
         } catch (FileNotFoundException e) {
@@ -52,11 +52,10 @@ public class Graph {
                 V = scan.nextInt();
                 E = scan.nextInt();
                 edges = new Edge[E];
-
-                adjMatrix = new int[V][V];
-                for (int i = 0; i < V; i++) {
-                    Arrays.fill(adjMatrix[i], INF);
-                }
+//                adjMatrix = new int[V][V];
+//                for (int i = 0; i < V; i++) {
+//                    Arrays.fill(adjMatrix[i], INF);
+//                }
                 for (int i = 0; i < E; i++) {
                     edges[i] = new Edge(scan.nextInt(), scan.nextInt(), scan.nextInt());
                     int x = edges[i].getFrom();
@@ -66,9 +65,9 @@ public class Graph {
                         adjList.put(x, new ArrayList<>());
                     }
                     adjList.get(x).add(new int[] {y, w});
-                    adjMatrix[x][y] = w;
-                    adjMatrix[x][x] = 0;
-                    adjMatrix[y][y] = 0;
+//                    adjMatrix[x][y] = w;
+//                    adjMatrix[x][x] = 0;
+//                    adjMatrix[y][y] = 0;
                     Error = 0;
                 }
                 scan.close();
@@ -93,12 +92,12 @@ public class Graph {
 //        }
 //        adjMatrix2= new int[V][V];
 
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                System.out.print(adjMatrix[i][j]+", ");
-            }
-            System.out.println();
-        }
+//        for (int i = 0; i < V; i++) {
+//            for (int j = 0; j < V; j++) {
+//                System.out.print(adjMatrix[i][j]+", ");
+//            }
+//            System.out.println();
+//        }
     }
 
     public boolean bellmanFord(int src, int[] cost, int[] p) {
