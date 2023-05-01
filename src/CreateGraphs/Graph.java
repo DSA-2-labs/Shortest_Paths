@@ -21,10 +21,10 @@ public class Graph {
                 int x = edges[i].getFrom();
                 int y = edges[i].getTo();
                 int w = edges[i].getW();
-                if(!adjList.containsKey(x)) {
+                if (!adjList.containsKey(x)) {
                     adjList.put(x, new ArrayList<>());
                 }
-                adjList.get(x).add(new int[] {y, w});
+                adjList.get(x).add(new int[]{y, w});
             }
             scan.close();
         } catch (FileNotFoundException e) {
@@ -48,10 +48,10 @@ public class Graph {
                     int x = edges[i].getFrom();
                     int y = edges[i].getTo();
                     int w = edges[i].getW();
-                    if(!adjList.containsKey(x)) {
+                    if (!adjList.containsKey(x)) {
                         adjList.put(x, new ArrayList<>());
                     }
-                    adjList.get(x).add(new int[] {y, w});
+                    adjList.get(x).add(new int[]{y, w});
                     Error = 0;
                 }
                 scan.close();
@@ -107,10 +107,10 @@ public class Graph {
         boolean[] visited = new boolean[V];
         visited[src] = true;
         minHeap.offer(new int[]{src, 0});
-        while(!minHeap.isEmpty()) {
+        while (!minHeap.isEmpty()) {
             int[] min = minHeap.poll();
             int minNode = min[0], minCost = min[1];
-            visited[minNode]= true;
+            visited[minNode] = true;
             List<int[]> neighbors = adjList.get(minNode);
             if (neighbors != null) {
                 for (int[] neighbor : neighbors) {
@@ -155,7 +155,6 @@ public class Graph {
         }
         return true;
     }
-
 
     public boolean is_there_negative_edge() {
         for (Edge edge : edges) {

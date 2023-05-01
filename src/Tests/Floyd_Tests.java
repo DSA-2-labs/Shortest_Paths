@@ -13,7 +13,7 @@ public class Floyd_Tests {
     private Graph graph;
     private int[][] cost;
     private int[][] pre;
-
+    String path = "D:/Data/2nd year/2nd term/Data-Structure2/labs/Tests/";
     private void read_expected(String filename,int[][] expected){
         try{
         scan = new Scanner(new File(filename));
@@ -26,13 +26,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test1(){
-        graph=new Graph("/home/mahmoud/Test1.txt");
+        graph=new Graph(path + "Test1.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected1.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected1p.txt",Expected_p);
+        read_expected(path + "Expected1.txt",Expected_cost);
+        read_expected(path + "Expected1p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -42,13 +42,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test2(){
-        graph=new Graph("/home/mahmoud/Test2.txt");
+        graph=new Graph(path + "Test2.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected2.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected2p.txt",Expected_p);
+        read_expected(path + "Expected2.txt",Expected_cost);
+        read_expected(path + "Expected2p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -58,13 +58,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test3() {
-        graph=new Graph("/home/mahmoud/Test3.txt");
+        graph=new Graph(path + "Test3.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected3.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected3p.txt",Expected_p);
+        read_expected(path + "Expected3.txt",Expected_cost);
+        read_expected(path + "Expected3p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -74,13 +74,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test4() {
-        graph=new Graph("/home/mahmoud/Test4.txt");
+        graph=new Graph(path + "Test4.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected4.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected4pp.txt",Expected_p);
+        read_expected(path + "Expected4.txt",Expected_cost);
+        read_expected(path + "Expected4pp.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -89,13 +89,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test5() {
-        graph=new Graph("/home/mahmoud/Test5.txt");
+        graph=new Graph(path + "Test5.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected5.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected5p.txt",Expected_p);
+        read_expected(path + "Expected5.txt",Expected_cost);
+        read_expected(path + "Expected5p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -104,13 +104,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test6() {
-        graph=new Graph("/home/mahmoud/Test6.txt");
+        graph=new Graph(path + "Test6.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected6.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected6p.txt",Expected_p);
+        read_expected(path + "Expected6.txt",Expected_cost);
+        read_expected(path + "Expected6p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -119,13 +119,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test7()  {
-        graph=new Graph("/home/mahmoud/Test7.txt");
+        graph=new Graph(path + "Test7.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected7.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected7p.txt",Expected_p);
+        read_expected(path + "Expected7.txt",Expected_cost);
+        read_expected(path + "Expected7p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -134,13 +134,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test8() {
-        graph=new Graph("/home/mahmoud/Test8.txt");
+        graph=new Graph(path + "Test8.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected8.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected8p.txt",Expected_p);
+        read_expected(path + "Expected8.txt",Expected_cost);
+        read_expected(path + "Expected8p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -149,13 +149,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test9() {
-        graph=new Graph("/home/mahmoud/Test9.txt");
+        graph=new Graph(path + "Test9.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected9.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected9p.txt",Expected_p);
+        read_expected(path + "Expected9.txt",Expected_cost);
+        read_expected(path + "Expected9p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -164,13 +164,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test10() {
-        graph=new Graph("/home/mahmoud/Test10.txt");
+        graph=new Graph(path + "Test10.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected10.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected10p.txt",Expected_p);
+        read_expected(path + "Expected10.txt",Expected_cost);
+        read_expected(path + "Expected10p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -181,13 +181,13 @@ public class Floyd_Tests {
 
     @Test
     public void Test11() {
-        graph=new Graph("/home/mahmoud/Test11.txt");
+        graph=new Graph(path + "Test11.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected11.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected11pp.txt",Expected_p);
+        read_expected(path + "Expected11.txt",Expected_cost);
+        read_expected(path + "Expected11pp.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -197,13 +197,13 @@ public class Floyd_Tests {
 
     @Test
     public void Test12() {
-        graph=new Graph("/home/mahmoud/Test12.txt");
+        graph=new Graph(path + "Test12.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected12.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected12p.txt",Expected_p);
+        read_expected(path + "Expected12.txt",Expected_cost);
+        read_expected(path + "Expected12p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -212,13 +212,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test13() {
-        graph=new Graph("/home/mahmoud/Test13.txt");
+        graph=new Graph(path + "Test13.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected13.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected13p.txt",Expected_p);
+        read_expected(path + "Expected13.txt",Expected_cost);
+        read_expected(path + "Expected13p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -228,13 +228,13 @@ public class Floyd_Tests {
 
     @Test
     public void Test14() {
-        graph=new Graph("/home/mahmoud/Test14.txt");
+        graph=new Graph(path + "Test14.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected14.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected14p.txt",Expected_p);
+        read_expected(path + "Expected14.txt",Expected_cost);
+        read_expected(path + "Expected14p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -243,13 +243,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test15() {
-        graph=new Graph("/home/mahmoud/Test15.txt");
+        graph=new Graph(path + "Test15.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected15.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected15p.txt",Expected_p);
+        read_expected(path + "Expected15.txt",Expected_cost);
+        read_expected(path + "Expected15p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -258,13 +258,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test16() {
-        graph=new Graph("/home/mahmoud/Test16.txt");
+        graph=new Graph(path + "Test16.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected16.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected16p.txt",Expected_p);
+        read_expected(path + "Expected16.txt",Expected_cost);
+        read_expected(path + "Expected16p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -274,13 +274,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test17() {
-        graph=new Graph("/home/mahmoud/Test17.txt");
+        graph=new Graph(path + "Test17.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected17.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected17p.txt",Expected_p);
+        read_expected(path + "Expected17.txt",Expected_cost);
+        read_expected(path + "Expected17p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -289,13 +289,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test18() {
-        graph=new Graph("/home/mahmoud/Test18.txt");
+        graph=new Graph(path + "Test18.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected18.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected18p.txt",Expected_p);
+        read_expected(path + "Expected18.txt",Expected_cost);
+        read_expected(path + "Expected18p.txt",Expected_p);
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);
             Assert.assertArrayEquals(Expected_cost[i],cost[i]);
@@ -305,13 +305,13 @@ public class Floyd_Tests {
     }
     @Test
     public void Test19(){
-        graph=new Graph("/home/mahmoud/Test19.txt");
+        graph=new Graph(path + "Test19.txt");
         cost=new int[graph.size()][graph.size()];
         pre=new int[graph.size()][graph.size()];
         int[][] Expected_cost = new int[graph.size()][graph.size()];
         int[][] Expected_p = new int[graph.size()][graph.size()];
-        read_expected("/home/mahmoud/Expected19.txt",Expected_cost);
-        read_expected("/home/mahmoud/Expected19p.txt",Expected_p);
+        read_expected(path + "Expected19.txt",Expected_cost);
+        read_expected(path + "Expected19p.txt",Expected_p);
         Assert.assertFalse(graph.Floyd_warshall(cost,pre));
         for (int i = 0; i < Expected_p.length; i++) {
             graph.Floyd_warshall(cost,pre);

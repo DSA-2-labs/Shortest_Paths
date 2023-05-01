@@ -12,16 +12,13 @@ public class cli {
     Graph g;
 
     public cli() {
-        Graph gg = new Graph();
-
-        this.g = gg;
+        g= new Graph();
         this.choose_function_menu();
     }
 
 
     void show_algo_menu(int source) {
         int choice = 0;
-
         while (true) {
             try {
                 System.out.print("List of valid Algorithms\n\n1-Dijkstra\n\n2-Bellman-Ford\n\n3-Floyd-Warshall\n\nEnter your choice (1,2,3) : ");
@@ -50,20 +47,16 @@ public class cli {
                         System.out.println("yes,there is negative cycle");
                     else
                         System.out.println("no,there is not negative cycle");
-
-
                 } else if (choice == 2) {
                     if (!g.Floyd_warshall(new int[g.size()][g.size()], new int[g.size()][g.size()]))
                         System.out.println("yes,there is negative cycle");
                     else
                         System.out.println("no,there is not negative cycle");
-
                 } else {
                     System.out.print("\n\nInvalid Choice");
                     continue;
                 }
                 choose_function_menu();
-
                 break;
             } catch (InputMismatchException ee) {
                 System.out.print("\n\nInvalid Choice");
@@ -92,7 +85,7 @@ public class cli {
         int choice = 0;
         while (true) {
             try {
-                System.out.print("\n\nList of functionalities\n\n1-Find the shortest path from a source node\n\n2-Find the shortest path between all pairs of nodes\n\n3-check if a negative cycle exist\n\nEnter your choice (1,2,3) : ");
+                System.out.print("\n\nList of functionalities\n\n1-Find the shortest path from a source node\n\n2-Find the shortest path between all pairs of nodes\n\n3-check if a negative cycle exist\n\n4-Enter new graph\n\nEnter your choice (1,2,3,4) : ");
                 choice = x.nextInt();
                 if (choice == 1) {
                     choose_source_menu();
@@ -104,7 +97,12 @@ public class cli {
                 } else if (choice == 3) {
                     show_algo_menu2();
                     break;
-                } else
+                }
+                else if (choice==4){
+                    g= new Graph();
+                    this.choose_function_menu();
+                }
+                else
                     System.out.print("\n\nInvalid Choice");
             } catch (InputMismatchException ee) {
                 System.out.print("\n\nInvalid Choice");
