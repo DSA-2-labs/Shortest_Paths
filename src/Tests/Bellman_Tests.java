@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 
 public class Bellman_Tests {
+
     Scanner scan;
     private Graph graph;
     private int[] cost;
