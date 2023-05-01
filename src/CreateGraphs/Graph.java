@@ -68,7 +68,10 @@ public class Graph {
     public int size() {
         return V;
     }
-
+    public int Edge_size()
+    {
+        return E;
+    }
     public boolean bellmanFord(int src, int[] cost, int[] p) {
         Arrays.fill(cost, INF);
         Arrays.fill(p, -1);
@@ -129,10 +132,11 @@ public class Graph {
         }
         for (Edge edge : edges) {
             costs[edge.getFrom()][edge.getTo()] = edge.getW();
-            predecessors[edge.getFrom() ][edge.getTo()] = edge.getFrom();
+            predecessors[edge.getFrom()][edge.getTo()] = edge.getFrom();
         }
         for (int i = 0; i < V; i++) {
             costs[i][i] = 0;
+            predecessors[i][i] = -1;
         }
         for (int k = 0; k < V; k++) {
             for (int i = 0; i < V; i++) {
