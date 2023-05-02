@@ -155,6 +155,7 @@ public class cli {
                 break;
             } catch (InputMismatchException ee) {
                 System.out.print("\n\nInvalid Node Try Again");
+                x.next();
             }
         }
     }
@@ -179,6 +180,7 @@ public class cli {
                 break;
             } catch (InputMismatchException ee) {
                 System.out.print("\n\nInvalid Node Try Again");
+                x.next();
             }
         }
     }
