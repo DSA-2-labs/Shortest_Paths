@@ -13,15 +13,15 @@ public class Floyd_Tests {
     private Graph graph;
     private int[][] cost;
     private int[][] pre;
-    String path = "D:/Data/2nd year/2nd term/Data-Structure2/labs/Tests/";
+    String path = "/home/mahmoud/";
     private void read_expected(String filename,int[][] expected){
         try{
-        scan = new Scanner(new File(filename));
-        for (int i = 0; i < expected.length; i++) {
-            for (int j = 0; j < expected[0].length; j++) {
-                expected[i][j]=scan.nextInt();
-            }
-        }scan.close();
+            scan = new Scanner(new File(filename));
+            for (int i = 0; i < expected.length; i++) {
+                for (int j = 0; j < expected[0].length; j++) {
+                    expected[i][j]=scan.nextInt();
+                }
+            }scan.close();
         }catch (FileNotFoundException e){e.printStackTrace();}
     }
     @Test

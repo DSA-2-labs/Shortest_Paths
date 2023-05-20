@@ -14,7 +14,7 @@ public class Bellman_Tests {
     private Graph graph;
     private int[] cost;
     private int[] parents;
-    String path = "D:/Data/2nd year/2nd term/Data-Structure2/labs/Tests/";
+    String path = "/home/mahmoud/";
     private void read_expected(String filename,int[][] expected) {
         try{
             scan = new Scanner(new File(filename));

@@ -43,7 +43,14 @@ public class cli {
                 System.out.print("\n\n1List of valid Algorithms\\n\n1-Bellman-Ford\n\n2-Floyd-Warshall\n\nEnter your choice (1,2) : ");
                 choice = x.nextInt();
                 if (choice == 1) {
-                    if (!g.bellmanFord(0, new int[g.size()], new int[g.size()]))
+                    boolean flag = true;
+                    for (int i = 0; i < g.size(); i++) {
+                        if (!g.bellmanFord(i, new int[g.size()], new int[g.size()]))
+                        {
+                            flag=false;break;
+                        }
+                    }
+                    if (!flag)
                         System.out.println("yes,there is negative cycle");
                     else
                         System.out.println("no,there is not negative cycle");
